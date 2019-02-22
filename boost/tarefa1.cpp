@@ -3,12 +3,14 @@
 // Não é para resolver na mão, use os recursos do BOOST.
 
 #include <iostream>
+#include <boost/scoped_ptr.hpp>
 
 int main() {
-  int *ptr = new int(0);
+  boost::scoped_ptr<int> ptr{new int(0)};
+  //int *ptr = new int(0);
   for(int f=0;f<1024*1024*1024;f++) {
-    ptr = new int(f);
+    ptr.reset(new int(f));
   }
-  std::cout << "valor final = " << *ptr << std::endl;
-  delete ptr;
+  std::cout << "ptr : " << *ptr.get() << std::endl;
+  ptr.reset();
 }
