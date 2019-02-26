@@ -1,5 +1,5 @@
 // Paralelize o código para calcular a soma mais rapido em vários cores
-// Compilar: g++ atividade1.cpp -std=c++14 -lboost_thread-mt -lboost_chrono-mt -lboost_system-mt -lboost_timer-mt
+// Compilar: g++ atividade1.cpp -std=c++14 -lboost_thread -lboost_chrono -lboost_system -lboost_timer
 // Referencia: https://theboostcpplibraries.com/boost.thread-management
 // Resposta: Luciano Soares
 
