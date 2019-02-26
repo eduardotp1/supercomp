@@ -11,12 +11,9 @@ int main() {
 
     boost::timer::cpu_timer timer;
 
-    const int size = 2'147'483'647;
-    const int n_size = size/4;
-
+    const std::uint64_t size = 2'147'483'647;
     std::uint64_t total = 0;
-    for (int i = 0; i < n_size; ++i)
-        std::cout << "entrando na thread" << 1 << std::endl;
+    for (std::uint64_t i = 0; i < size; ++i)
         total += i+1;
         std::cout << "saindo da thread" << 1 << std::endl;
 
