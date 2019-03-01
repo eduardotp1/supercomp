@@ -4,8 +4,7 @@
 // elementos por 2. */
 
 void div82(float vec[8]) {
-
-   // Insira seu código aqui.
-
+    for (unsigned i=0; i<8; i++) vec[i]/=2;
+    return;
 }
 
