@@ -1,4 +1,7 @@
 #include <math.h>
+#include <chrono>
+#include <iostream>
+#include <vector>
 
 double inner_prod(double *a, double *b, unsigned long n) {
     double sum = 0;
@@ -41,4 +44,26 @@ void gauss(double *a, double *b, unsigned long n) {
     for (unsigned long i = 0; i < n; i++) {
         b[i] = p * exp(-a[i]*a[i]/2);
     }
+}
+
+#define n (4)
+
+int main(){
+    unsigned int size[n] = [10,100,1000,10000];
+    a = new double [];
+    b = new double [];
+
+    for (i=0 ){
+        std::srand(std::time(nullptr)); // use current time as seed for random generator
+        int random_variable = std::rand();
+        a.push_back(random_variable);
+        std::srand(std::time(nullptr)); // use current time as seed for random generator
+        int random_variable = std::rand();
+        b.push_back(random_variable);
+    }
+
+    auto now = high_resolution_clock::now();
+    auto end_time = duration_cast<duration<double>>(high_resolution_clock::now() - now).count();
+
+    inner_prod(a,b,n)
 }
