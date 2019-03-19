@@ -33,7 +33,7 @@ static long ADDEND      = 150889;
 static long PMOD        = 714025;
 long random_last = 0;
 double random_low, random_hi;
-
+#pragma omp threadprivate(random_last)
 double drandom()
 {
     long random_next;

@@ -100,16 +100,16 @@ int main ()
 
    seed(-r, r);  // The circle and square are centered at the origin
    double time = omp_get_wtime();
+    #pragma omp parallel for default(shared) private(x,y,test) firstprivate(r,pi) reduction (+:Ncirc)
+        for(i=0;i<num_trials; i++)
+        {
+            x = drandom(); 
+            y = drandom();
 
-   for(i=0;i<num_trials; i++)
-   {
-      x = drandom(); 
-      y = drandom();
+            test = x*x + y*y;
 
-      test = x*x + y*y;
-
-      if (test <= r*r) Ncirc++;
-    }
+            if (test <= r*r) Ncirc++;
+            }
 
     pi = 4.0 * ((double)Ncirc/(double)num_trials);
 
