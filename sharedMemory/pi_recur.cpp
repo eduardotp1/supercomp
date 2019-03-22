@@ -29,9 +29,12 @@ double pi_comp(int Nstart,int Nfinish,double step) {
    }
    else{
       iblk = Nfinish-Nstart;
-      sum1 = pi_comp(Nstart,         Nfinish-iblk/2,step);
-      sum2 = pi_comp(Nfinish-iblk/2, Nfinish,       step);
-      sum = sum1 + sum2;
+      #pragma omp task shared(sum1)
+         sum1 = pi_comp(Nstart,         Nfinish-iblk/2,step);
+      #pragma omp task shared(sum2)
+         sum2 = pi_comp(Nfinish-iblk/2, Nfinish,       step);
+      #pragma omp taskwait
+         sum = sum1 + sum2;
    }
    return sum;
 }
@@ -43,7 +46,9 @@ int main () {
    step = 1.0/(double) num_steps;
 
    init_time = omp_get_wtime();
-   sum = pi_comp(0,num_steps,step);
+   #pragma omp parallel
+     #pragma omp master
+      sum = pi_comp(0,num_steps,step);
    pi = step * sum;
    final_time = omp_get_wtime() - init_time;
    std::cout << "for " << num_steps << " steps pi = " << pi << " in " << final_time << " secs\n";

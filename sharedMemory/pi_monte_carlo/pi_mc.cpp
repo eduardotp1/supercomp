@@ -90,30 +90,35 @@ History:
 // The monte carlo pi program
 //
 
-static long num_trials = 100000000;
+class Values {
+    public:
+        const long num_trials = 100000000;
+        long i;  long Ncirc = 0;
+        double pi, x, y, test;
+};
 
 int main ()
 {
-   long i;  long Ncirc = 0;
-   double pi, x, y, test;
-   double r = 1.0;   // radius of circle. Side of squrare is 2*r 
+    Values val;
+    long Ncirc = 0;
+    double r = 1.0;   // radius of circle. Side of squrare is 2*r 
 
    seed(-r, r);  // The circle and square are centered at the origin
    double time = omp_get_wtime();
-    #pragma omp parallel for default(shared) private(x,y,test) firstprivate(r,pi) reduction (+:Ncirc)
-        for(i=0;i<num_trials; i++)
+    #pragma omp parallel for default(shared) private(val.x,val.y,val.test) firstprivate(r,val.pi) reduction (+:val.Ncirc)
+        for(val.i=0;val.i<val.num_trials; val.i++)
         {
-            x = drandom(); 
-            y = drandom();
+            val.x = drandom(); 
+            val.y = drandom();
 
-            test = x*x + y*y;
+            val.test = val.x*val.x + val.y*val.y;
 
-            if (test <= r*r) Ncirc++;
+            if (val.test <= r*r) Ncirc++;
             }
 
-    pi = 4.0 * ((double)Ncirc/(double)num_trials);
+    val.pi = 4.0 * ((double)val.Ncirc/(double)val.num_trials);
 
-    std::cout << std::endl << num_trials << " trials, pi is " << pi;
+    std::cout << std::endl << val.num_trials << " trials, pi is " << val.pi;
     std::cout << " in " << omp_get_wtime()-time << " seconds\n";
 
 }
