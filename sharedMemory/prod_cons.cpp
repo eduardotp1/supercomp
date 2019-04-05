@@ -43,10 +43,24 @@ int main() {
 
   runtime = omp_get_wtime();
 
-  fill_rand(N, A);        // Producer: fill an array of data
-
-  sum = Sum_array(N, A);  // Consumer: sum the array
-   
+  #pragma omp parallel sections
+    {
+        #pragma omp section
+        {
+            fill_rand(N, A); // Producer: fill an array of data
+            #pragma omp flush
+            flag = 1;
+            #pragma omp flush (flag)
+        }
+        #pragma omp section
+        {
+            while (flag == 0){
+              #pragma omp flush (flag)
+            }
+            #pragma omp flush
+            sum = Sum_array(N, A);  // Consumer: sum the array
+        }
+    }
   runtime = omp_get_wtime() - runtime;
 
   std::cout << "Soma = " << sum << " em " << runtime << " segundos\n";

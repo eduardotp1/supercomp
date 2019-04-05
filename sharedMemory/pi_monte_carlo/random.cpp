@@ -28,11 +28,7 @@
 //      Written by Tim Mattson, 9/2007.
 //      changed to drandom() to avoid collision with standard libraries, 11/2011
 
-static long MULTIPLIER  = 1366;
-static long ADDEND      = 150889;
-static long PMOD        = 714025;
-long random_last = 0;
-double random_low, random_hi;
+
 #pragma omp threadprivate(random_last)
 double drandom()
 {
@@ -51,25 +47,26 @@ double drandom()
     ret_val = ((double)random_next/(double)PMOD)*(random_hi-random_low)+random_low;
     return ret_val;
 }
+
+
 //
 // set the seed and the range
 //
 void seed(double low_in, double hi_in)
 {
-   if(low_in < hi_in)
-   { 
-      random_low = low_in;
-      random_hi  = hi_in;
-   }
-   else
-   {
-      random_low = hi_in;
-      random_hi  = low_in;
-   }
-   random_last = PMOD/ADDEND;  // just pick something
+if(low_in < hi_in)
+{ 
+    random_low = low_in;
+    random_hi  = hi_in;
+}
+else
+{
+    random_low = hi_in;
+    random_hi  = low_in;
+}
+random_last = PMOD/ADDEND;  // just pick something
 
 }
 //**********************************************************
 // end of pseudo random generator code.
 //**********************************************************
-
