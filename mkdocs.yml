@@ -37,11 +37,14 @@ nav:
         - '04 - SIMD: Autovetorização': aulas/04-autovec.md 
         - aulas/05-intro-multi-core.md
         - aulas/06-intro-openmp.md
+        - aulas/07-openmp-for.md
 
 
     - Projetos:
         - 'Índice': projetos/index.md
         - projetos/checklist.md
+        - projetos/projeto-pfe.md
+        - projetos/projeto-multi-core.md
         
 extra_javascript: 
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML
