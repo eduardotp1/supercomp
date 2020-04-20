@@ -1,0 +1,6 @@
+/home/tirta/DP/supercomp2019/03-CMAKE/build/CMakeFiles/edit_cache.dir
+/home/tirta/DP/supercomp2019/03-CMAKE/build/CMakeFiles/rebuild_cache.dir
+/home/tirta/DP/supercomp2019/03-CMAKE/build/CMakeFiles/vector_ops_simd.dir
+/home/tirta/DP/supercomp2019/03-CMAKE/build/CMakeFiles/vector_ops.dir
+/home/tirta/DP/supercomp2019/03-CMAKE/build/CMakeFiles/vector_ops_no_opt.dir
+/home/tirta/DP/supercomp2019/03-CMAKE/build/CMakeFiles/vector_ops2.dir

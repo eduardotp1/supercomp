@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tirta/DP/supercomp2019/03-CMAKE/func.cpp
+iostream
+-
+iomanip
+-
+cmath
+-
+chrono
+-
+random
+-
+vector
+-
+functional
+-
+stdlib.h
+-
+

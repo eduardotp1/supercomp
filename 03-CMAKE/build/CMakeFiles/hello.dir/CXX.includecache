@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tirta/DP/supercomp2019/03-CMAKE/func.cpp
+iostream
+-
+memory
+-
+vector
+-
+
+/home/tirta/DP/supercomp2019/03-CMAKE/func.h
+vector
+-
+memory
+-
+
+/home/tirta/DP/supercomp2019/03-CMAKE/hello.cpp
+iostream
+-
+memory
+-
+vector
+-
+func.h
+/home/tirta/DP/supercomp2019/03-CMAKE/func.h
+

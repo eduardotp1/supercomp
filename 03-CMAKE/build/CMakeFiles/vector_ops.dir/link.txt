@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/vector_ops.dir/projeto0.cpp.o CMakeFiles/vector_ops.dir/func.cpp.o  -o vector_ops 

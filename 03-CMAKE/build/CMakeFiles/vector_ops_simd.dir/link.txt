@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/vector_ops_simd.dir/projeto0.cpp.o CMakeFiles/vector_ops_simd.dir/func.cpp.o  -o vector_ops_simd 

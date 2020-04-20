@@ -68,17 +68,19 @@ int main(){
         vetor=gera_vetor(i);   
 
         high_resolution_clock::time_point t1 = high_resolution_clock::now();
-        log_vetor(i,vetor);
+        double *vetorAux = log_vetor(i,vetor);
         high_resolution_clock::time_point t2 = high_resolution_clock::now();
-        sqrt_vetor(i,vetor);
+        vetorAux = sqrt_vetor(i,vetor);
         high_resolution_clock::time_point t3 = high_resolution_clock::now();
-        pow3_vetor(i,vetor);
+        vetorAux = pow3_vetor(i,vetor);
         high_resolution_clock::time_point t4 = high_resolution_clock::now();
-        pow2Manual_vetor(i,vetor);
+        vetorAux = pow2Manual_vetor(i,vetor);
         high_resolution_clock::time_point t5 = high_resolution_clock::now();
-        sum_vetor(i,vetor);
+        double soma = sum_vetor(i,vetor);
         high_resolution_clock::time_point t6 = high_resolution_clock::now();
 
+        delete[] vetor;
+        delete[] vetorAux;
 
 
         duration<double> time_log = duration_cast<duration<double>>(t2 - t1);
